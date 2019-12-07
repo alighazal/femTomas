@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="Instruction_Status.cpp" />
     <ClCompile Include="Reservation_Station.cpp" />
-    <ClCompile Include="ROB.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
