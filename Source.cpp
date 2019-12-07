@@ -45,7 +45,7 @@ int main() {
 
 	vector<short int> general_purpose_Registers;
 	general_purpose_Registers.resize(8);	//Array of general purpose register
-	general_purpose_Registers[0] = const 0;
+	general_purpose_Registers[0] = 0;
 	for (int i = 1; i < 8; i++)	// initialize the general purpose registers to 0
 	{
 		general_purpose_Registers[i] = 0;
