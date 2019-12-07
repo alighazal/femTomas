@@ -79,6 +79,21 @@ int main() {
 	NAND.resize(2);
 	MULT.resize(2);
 
+	//**instruction parsing
+
+
+	string inst;
+	string buffer;
+	vector<string> elements;
+
+	for (int i = 0; i < inst.length(); i++) {
+		buffer += inst[i];
+		if (inst[i] == ' ' || inst[i] == '(' || inst[i] == ')') {
+			elements.push_back(buffer);
+			buffer = "";
+		}
+	}
+
 
 
 
