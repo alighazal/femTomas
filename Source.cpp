@@ -82,15 +82,19 @@ int main() {
 	//**instruction parsing
 
 
-	string inst;
+	string inst = "LW R5, 35(R6)";
 	string buffer;
 	vector<string> elements;
+	vector<string> clean_elements;
 
 	for (int i = 0; i < inst.length(); i++) {
-		buffer += inst[i];
-		if (inst[i] == ' ' || inst[i] == '(' || inst[i] == ')') {
-			elements.push_back(buffer);
+
+		if (inst[i] == ' ' || inst[i] == '(' || inst[i] == ')' || inst[i] == ',') {
+			if (buffer != "") elements.push_back(buffer);
 			buffer = "";
+		}
+		else {
+			buffer += inst[i];
 		}
 	}
 
