@@ -43,6 +43,21 @@ int main() {
 	//**tables
 	int reg_dest[2][16];	// to show what Operation running on each register destination
 
+	vector<short int> general_purpose_Registers;
+	general_purpose_Registers.resize(8);	//Array of general purpose register
+	general_purpose_Registers[0] = const 0;
+	for (int i = 1; i < 8; i++)	// initialize the general purpose registers to 0
+	{
+		general_purpose_Registers[i] = 0;
+	}
+
+	vector<short int> Memory;
+	Memory.resize(65536);
+	for (int i = 0; i < 65536; i++)	//initailizing the memory to 0
+	{
+		Memory[i] = 0;
+	}
+
 	//**Reservation stations 
 	vector<Reservation_Station> LW;
 	vector<Reservation_Station> SW;
@@ -63,6 +78,7 @@ int main() {
 	ADD_SUB_ADDI.resize(3);
 	NAND.resize(2);
 	MULT.resize(2);
+
 
 
 
