@@ -21,6 +21,9 @@
     <ClCompile Include="Reservation_Station.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ROB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reservation_Station.h">

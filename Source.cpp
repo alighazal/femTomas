@@ -17,7 +17,7 @@ reduce confusion and errors
 ******************************************/
 
 enum ROB { ROB_type, ROB_dest, ROB_value, ROB_ready };
-enum inst_type {LW, SW, JMP, JALR, RET, BEQ, ADD, SUB, ADDI, NAND, MULT};
+enum class inst_type {LW, SW, JMP, JALR, RET, BEQ, ADD, SUB, ADDI, NAND, MULT};
 enum reservation_station {rs_busy, rs_Op, rs_Vi, rs_Vk, rs_Qj, rs_Qk, rs_dest, rs_A};
 enum status { current ,issued, dispatched, exectuted, committed};
 
@@ -30,7 +30,14 @@ int main() {
 	int tail = 0; // for the ROB
 	int head = 0; // for the ROB
 	//**tables
-	
+	vector<vector<int>> ROB; //reorder buffer 
+	vector<vector<int>> res_lw;
+	vector<vector<int>> res_sw;
+	vector<vector<int>> res_jmp_jalr_ret;
+	vector<vector<int>> res_beq;
+	vector<vector<int>> res_add_sub_addi;
+	vector<vector<int>> res_nand;
+	vector<vector<int>> res_mult;
 	vector<vector<int>> inst_status;
 	int reg_dest[2][16];	// to show what Operation running on each register destination
 
