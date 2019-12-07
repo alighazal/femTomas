@@ -20,7 +20,7 @@ reduce confusion and errors
 
 ******************************************/
 enum class inst_type { LW, SW, JMP, JALR, RET, BEQ, ADD, SUB, ADDI, NAND, MULT };
-enum status { current ,issued, dispatched, exectuted, committed};
+enum status { issued, dispatched, exectuted, committed};
 
 struct ROB {
 	inst_type	Type;	/* A register operation (has register destination like ALU operations, LW, JALR), a store (has memory address destination
@@ -31,13 +31,24 @@ struct ROB {
 	bool		Ready;	// if true --> ready, flase --> busy(not ready)
 };
 
+struct Instruction {
+	string inst;
+	int rs1, rs2, rd, A;
+	int issued, dispacthed, executed;
+	status Status;
+
+};
+
 int main() {
 
 	// INITIALIZATIONS
 
 	//**variables  
-	int clk = 0;
+	int clk = 1;
 	int no_inst = 0;
+	bool finished = false;
+	string inst = "", buffer = "";
+	int address;
 
 
 	//**tables
@@ -57,6 +68,9 @@ int main() {
 	{
 		Memory[i] = 0;
 	}
+
+	vector<Instruction> Instructions;
+	Instructions.resize(no_inst);
 
 	//**Reservation stations 
 	vector<Reservation_Station> LW;
@@ -82,20 +96,37 @@ int main() {
 	//**instruction parsing
 
 
-	string inst = "LW R5, 35(R6)";
-	string buffer;
+	
+	
 	vector<string> elements;
-	vector<string> clean_elements;
 
-	for (int i = 0; i < inst.length(); i++) {
+	for (int i = 0; i < no_inst; i++) {
+		getline(cin, inst);
+		for (int j = 0; j < inst.length(); j++) 
+		{
+			if (inst[j] == ' ' || inst[j] == '(' || inst[j] == ')' || inst[j] == ',') {
+				if (buffer != "") 
+					elements.push_back(buffer);
+				buffer = "";
+			}
+			else {
+				buffer += inst[i];
+			}
+		}
+		if(toupper(element[0]) == "LW" || )
+	}
 
-		if (inst[i] == ' ' || inst[i] == '(' || inst[i] == ')' || inst[i] == ',') {
-			if (buffer != "") elements.push_back(buffer);
-			buffer = "";
-		}
-		else {
-			buffer += inst[i];
-		}
+	while (!finished)
+	{
+		inst = Memory[address];
+
+
+
+
+
+
+
+		clk++;
 	}
 
 
